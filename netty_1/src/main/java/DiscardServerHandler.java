@@ -55,4 +55,25 @@ public class DiscardServerHandler extends ChannelHandlerAdapter {
         cause.printStackTrace();
         ctx.close();
     }
+
+    /**
+     * 有新的连接加入的时候
+     * @param ctx
+     * @throws Exception
+     */
+    @Override
+    public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("新增Channel ,ChannelId = " + ctx.channel().id());
+    }
+
+
+    /**
+     * 有连接断开被移除的时候调用
+     * @param ctx
+     * @throws Exception
+     */
+    @Override
+    public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("移除Channel ,ChannelId = " + ctx.channel().id());
+    }
 }
